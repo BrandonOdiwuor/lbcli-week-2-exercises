@@ -137,7 +137,8 @@ echo ""
 TX_SIZE=$((10 + 68 + 2 * 31))
 check_cmd "Transaction size calculation" "TX_SIZE" "$TX_SIZE"
 
-FEE_SATS=$((TX_SIZE * FEE_RATE))
+FEE_RATE=10 
+FEE_SATS=$(($TX_SIZE * $FEE_RATE))
 check_cmd "Fee calculation" "FEE_SATS" "$FEE_SATS"
 
 echo "Estimated transaction size: $TX_SIZE vbytes"
