@@ -184,7 +184,7 @@ fi
 
 # STUDENT TASK: Calculate the change amount
 PAYMENT_AMOUNT=15000000  # in satoshis
-CHANGE_AMOUNT=$(($UTXO_VALUE - $PAYMENT_AMOUNT - $FEE_SATS))
+CHANGE_AMOUNT=$($UTXO_VALUE - $PAYMENT_AMOUNT - $FEE_SATS)
 check_cmd "Change calculation" "CHANGE_AMOUNT" "$CHANGE_AMOUNT"
 
 # Convert amounts to BTC for createrawtransaction
@@ -192,7 +192,7 @@ PAYMENT_BTC=$(echo "scale=8; $PAYMENT_AMOUNT / 100000000" | bc)
 CHANGE_BTC=$(echo "scale=8; $CHANGE_AMOUNT / 100000000" | bc)
 
 # STUDENT TASK: Create the outputs JSON structure
-TX_OUTPUTS=$(($UTXO_VALUE - $PAYMENT_AMOUNT - $FEE_SATS))
+TX_OUTPUTS=$($UTXO_VALUE - $PAYMENT_AMOUNT - $FEE_SATS)
 check_cmd "Output JSON creation" "TX_OUTPUTS" "$TX_OUTPUTS"
 
 # STUDENT TASK: Create the raw transaction
